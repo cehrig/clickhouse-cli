@@ -52,7 +52,7 @@ http.client.parse_headers = parse_headers_stream
 
 
 def show_version():
-    print("clickhouse-cli version: {version}".format(version=__version__))
+    print("clickhouse-cli ACCESS version: {version}".format(version=__version__))
 
 
 class CLI:
