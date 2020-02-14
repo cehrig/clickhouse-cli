@@ -6,6 +6,7 @@ import uuid
 import requests
 import sqlparse
 import pygments
+import os
 
 from requests.packages.urllib3.util.retry import Retry
 from pygments.formatters import TerminalFormatter, TerminalTrueColorFormatter
@@ -88,7 +89,8 @@ class Client(object):
         params = {'session_id': self.session_id}
         params.update(extra_params)
 
-        headers = {'Accept-Encoding': 'identity', 'User-Agent': USER_AGENT}
+        cookie = os.environ.get('ACCESS_COOKIE', '')
+        headers = {'Accept-Encoding': 'identity', 'User-Agent': USER_AGENT, 'Cookie': cookie}
         if compress:
             headers['Content-Encoding'] = 'gzip'
 
